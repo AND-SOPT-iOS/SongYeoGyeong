@@ -11,11 +11,12 @@ class MainTabController: UITabBarController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configureViewControllers()
+    justifyViewControllers()
+    tabBarAppearnaece()
     view.backgroundColor = .systemBackground
   }
   
-  func configureViewControllers() {
+  func justifyViewControllers() {
     let today = TodayPageController()
     let game = GamePageController()
     let app = AppPageController()
@@ -67,8 +68,18 @@ class MainTabController: UITabBarController {
     
     let appearance = UINavigationBarAppearance()
     nav.navigationBar.standardAppearance = appearance
-    nav.navigationBar.scrollEdgeAppearance = appearance
+//    nav.navigationBar.scrollEdgeAppearance = appearance
     
     return nav
+  }
+  
+  func tabBarAppearnaece() {
+    let appearance = UITabBarAppearance()
+    appearance.configureWithOpaqueBackground()
+    
+    appearance.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.3)
+    
+    tabBar.standardAppearance = appearance
+    tabBar.scrollEdgeAppearance = appearance
   }
 }
