@@ -66,10 +66,6 @@ class MainTabController: UITabBarController {
     nav.tabBarItem.image = image
     nav.tabBarItem.selectedImage = selectedImage
     
-    let appearance = UINavigationBarAppearance()
-    nav.navigationBar.standardAppearance = appearance
-//    nav.navigationBar.scrollEdgeAppearance = appearance
-    
     return nav
   }
   
@@ -78,6 +74,9 @@ class MainTabController: UITabBarController {
     appearance.configureWithOpaqueBackground()
     
     appearance.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.3)
+    
+    appearance.shadowImage = UIImage()
+    appearance.shadowColor = .clear
     
     tabBar.standardAppearance = appearance
     tabBar.scrollEdgeAppearance = appearance
