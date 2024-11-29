@@ -20,30 +20,34 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(
-                    alignment: .leading,
-                    spacing: 16
-                ) {
-                    HStack(spacing: 12) {
-                        Image(profile.imageName)
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .clipShape(Circle())
-                        VStack(alignment: .leading) {
-                            Text(profile.title)
-                                .font(.headline)
-                            Text(profile.subTitle)
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                        }
-                        Spacer()
-                    }
-                    .padding(.horizontal)
+            VStack(
+                alignment: .leading,
+                spacing: 0
+            ) {
+                HStack(spacing: 12) {
+                    Image(profile.imageName)
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
                     
+                    VStack(alignment: .leading) {
+                        Text(profile.title)
+                            .font(.headline)
+                        Text(profile.subTitle)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+                    
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+                
+                ScrollView {
                     Text(profile.description)
                         .font(.body)
                         .padding(.horizontal)
+                        .padding(.top, 10)
                 }
             }
             .navigationBarItems(
@@ -55,10 +59,7 @@ struct ProfileView: View {
                     }
                 }
             )
-            .navigationBarTitle(
-                "Profile",
-                displayMode: .inline
-            )
+            .navigationBarTitle("Profile", displayMode: .inline)
         }
     }
 }
