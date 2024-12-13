@@ -50,7 +50,7 @@ struct AppCell: View {
             .frame(width: app.DownloadState == .notDownloaded ? 40 : 70)
             .background(
                 app.DownloadState == .notDownloaded ? Color.clear :
-                    (app.isAd ? Color.black : Color.gray.opacity(0.3))
+                    (app.isAd ? Color.black : Color.gray.opacity(0.2))
             )
             .foregroundColor(.blue)
             .cornerRadius(18)
