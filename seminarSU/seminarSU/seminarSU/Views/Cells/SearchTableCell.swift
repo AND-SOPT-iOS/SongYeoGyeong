@@ -34,7 +34,7 @@ struct AppCell: View {
                         .cornerRadius(4)
                 }
             }
-            
+            Spacer()
             Button(action: {}) {
                 switch app.DownloadState {
                 case .notDownloaded:
