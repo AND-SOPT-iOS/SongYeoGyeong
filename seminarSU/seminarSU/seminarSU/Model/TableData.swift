@@ -7,13 +7,18 @@
 
 import SwiftUI
 
+enum DownloadState {
+    case notDownloaded
+    case downloaded
+}
+
 struct TableData: Identifiable {
     
     let id = UUID()
     let appName: String
     let description: String
     let icon: String
-    let buttonText: String
+    let DownloadState: DownloadState
     let isAd: Bool
     
 }

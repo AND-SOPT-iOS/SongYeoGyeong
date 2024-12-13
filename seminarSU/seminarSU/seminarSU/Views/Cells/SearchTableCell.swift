@@ -11,6 +11,7 @@ struct AppCell: View {
     let app: TableData
     
     var body: some View {
+        
         HStack(spacing: 16) {
             Image(app.icon)
                 .resizable()
@@ -33,17 +34,26 @@ struct AppCell: View {
                         .cornerRadius(4)
                 }
             }
+            
             Button(action: {}) {
-                Text(app.buttonText)
-                    .font(.headline)
-                    .padding(8)
-                    .frame(width: 70)
-                    .background(
-                        app.isAd ? Color.black : Color(.systemGray6)
-                    )
-                    .foregroundColor(.blue)
-                    .cornerRadius(16)
+                switch app.DownloadState {
+                case .notDownloaded:
+                    Image(systemName: "icloud.and.arrow.down")
+                        .resizable()
+                        .frame(width: 25, height: 25)
+                case .downloaded:
+                    Text("열기")
+                        .font(.headline)
+                }
             }
+            .padding(8)
+            .frame(width: app.DownloadState == .notDownloaded ? 40 : 70)
+            .background(
+                app.DownloadState == .notDownloaded ? Color.clear :
+                    (app.isAd ? Color.black : Color.gray.opacity(0.3))
+            )
+            .foregroundColor(.blue)
+            .cornerRadius(18)
         }
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
@@ -60,7 +70,7 @@ struct AppCell: View {
         appName: "올리브영",
         description: "대한민국 No.1 뷰티&헬스 스토어",
         icon: "oliveyoung",
-        buttonText: "열기",
+        DownloadState: .downloaded,
         isAd: true
     ))
 }

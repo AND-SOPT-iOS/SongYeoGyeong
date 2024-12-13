@@ -14,7 +14,7 @@ class SearchTableViewModel: ObservableObject {
             appName: "올리브영",
             description: "대한민국 No.1 뷰티&헬스 스토어",
             icon: "oliveyoung",
-            buttonText: "열기",
+            DownloadState: .downloaded,
             isAd: true
         ),
         
@@ -22,7 +22,7 @@ class SearchTableViewModel: ObservableObject {
             appName: "Rummikub",
             description: "사람들을한데 모으기",
             icon: "Rumicube",
-            buttonText: "열기",
+            DownloadState: .downloaded,
             isAd: false
         ),
         
@@ -30,7 +30,7 @@ class SearchTableViewModel: ObservableObject {
             appName: "전략적 팀 전투",
             description: "판타지 오토 배틀러",
             icon: "leagueoflegend",
-            buttonText: "다운로드",
+            DownloadState: .notDownloaded,
             isAd: false
         )
     ]
