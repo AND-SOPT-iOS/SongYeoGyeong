@@ -21,7 +21,7 @@ struct SearchView: View {
                     HStack {
                         Text("검색")
                             .font(isScrolled ? .headline : .largeTitle)
-                            .fontWeight(.bold)
+                            .fontWeight(.semibold)
                             .foregroundColor(.white)
                         Spacer()
                         Image(systemName: "person.circle.fill")
