@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchView: View {
     @State private var searchText: String = ""
     @ObservedObject var viewModel = SearchTableViewModel()
+    @ObservedObject var gridViewModel = SearchGridViewModel()
     
     private var searchBar: some View {
         HStack {
@@ -55,7 +56,7 @@ struct SearchView: View {
     private var recommendedSectionHeader: some View {
         HStack {
             Text("추천 앱과 게임")
-                .font(.title2)
+                .font(.title2.bold())
                 .foregroundColor(.white)
             Spacer()
             Button(action: {}) {
@@ -66,6 +67,34 @@ struct SearchView: View {
         }
         .padding(.horizontal, 16)
         .padding(.bottom, 8)
+    }
+    
+    private var aroundSectionHeader: some View {
+        HStack {
+            Text("둘러보기")
+                .font(.title2.bold())
+                .foregroundColor(.white)
+            Spacer()
+            Button(action: {}) {
+                Text("모두 보기")
+                    .font(.title3)
+                    .foregroundColor(.blue)
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.top, 16)
+    }
+    
+    private var gridView: some View {
+        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+            ForEach(gridViewModel.items) { item in
+                SearchGridCell(item: item) {
+                    print("\(item.title) 눌렸다!! ㅋㅋ")
+                }
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.top, 10)
     }
     
     var body: some View {
@@ -91,7 +120,9 @@ struct SearchView: View {
                                 .background(Color.black)
                         }
                         .listStyle(PlainListStyle())
-                        .frame(height: 500)
+                        .frame(height: 220)
+                        aroundSectionHeader
+                        gridView
                     }
                 }
             }

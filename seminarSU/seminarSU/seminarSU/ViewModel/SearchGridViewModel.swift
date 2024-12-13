@@ -56,6 +56,38 @@ class SearchGridViewModel: ObservableObject {
             ],
             title: "라이프 스타일",
             icon: "chair.fill"
+        ),
+        SearchGridModel(
+            backgroundColor: [
+                Color.green,
+                Color.blue
+            ],
+            title: "건강과 피트니스",
+            icon: "figure.walk"
+        ),
+        SearchGridModel(
+            backgroundColor: [
+                Color.red,
+                Color.pink
+            ],
+            title: "음악",
+            icon: "music.note"
+        ),
+        SearchGridModel(
+            backgroundColor: [
+                Color.cyan,
+                Color.teal
+            ],
+            title: "교육",
+            icon: "book.fill"
+        ),
+        SearchGridModel(
+            backgroundColor: [
+                Color.indigo,
+                Color.mint
+            ],
+            title: "여행",
+            icon: "airplane"
         )
     ]
 }
